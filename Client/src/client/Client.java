@@ -23,8 +23,6 @@ public class Client
             DataInputStream dis = new DataInputStream(s.getInputStream()); 
             DataOutputStream dos = new DataOutputStream(s.getOutputStream()); 
             
-            File file = new File("folder");
-            System.out.println("Folder created");
       
             // the following loop performs the exchange of 
             // information between client and client handler 

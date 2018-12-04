@@ -44,6 +44,15 @@ public class ServerConnection extends Thread{
 //            sc.sendStringtoClient(text);
 //        }
 //    }
+   
+      public void request(){
+          for(int g = 0; g<server.con.length;g++){
+              if(server.con[g].equals(this.socket)){
+                  System.out.println("It Works!!");
+                  System.out.println(this.socket);
+          }
+      }
+      }
     
     @Override
     public void run(){
@@ -67,6 +76,8 @@ public class ServerConnection extends Thread{
                 this.socket.close();
                 break;
             }else if(textin.toLowerCase().equals("request")){
+                /* NEED TO COMEPLETE THIS CODE */
+                request();
                 System.out.println("Enter code for request method plz");
             }
             //sendStringtoAll(textin);

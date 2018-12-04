@@ -1,3 +1,5 @@
+package client;
+
 import java.io.*; 
 import java.net.*; 
 import java.util.Scanner; 
@@ -15,11 +17,14 @@ public class Client
             InetAddress ip = InetAddress.getByName("localhost"); 
       
             // establish the connection with server port 5056 
-            Socket s = new Socket(ip, 5056); 
+            Socket s = new Socket(ip, 8001); 
       
             // obtaining input and out streams 
             DataInputStream dis = new DataInputStream(s.getInputStream()); 
             DataOutputStream dos = new DataOutputStream(s.getOutputStream()); 
+            
+            File file = new File("folder");
+            System.out.println("Folder created");
       
             // the following loop performs the exchange of 
             // information between client and client handler 
@@ -31,13 +36,13 @@ public class Client
                   
                 // If client sends exit,close this connection  
                 // and then break from the while loop 
-                if(tosend.equals("Exit")) 
+                if(tosend.toLowerCase().equals("exit")) 
                 { 
                     System.out.println("Closing this connection : " + s); 
                     s.close(); 
                     System.out.println("Connection closed"); 
                     break; 
-                } 
+                }
                   
                 // printing date or time as requested by client 
                 String received = dis.readUTF(); 
